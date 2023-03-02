@@ -24,10 +24,10 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running edu.montana.csci.csci468.tokenizer.CatScriptTokenizerTest
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in edu.montana.csci.csci468.tokenizer.CatScriptTokenizerTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in edu.montana.csci.csci468.tokenizer.CatScriptTokenizerTest
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserStatementsTest
-[ERROR] Tests run: 21, Failures: 0, Errors: 19, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserStatementsTest
-[ERROR] functionDefStatement  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] Tests run: 21, Failures: 0, Errors: 19, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserStatementsTest
+[ERROR] functionDefStatement  Time elapsed: 0.003 s  <<< ERROR!
 edu.montana.csci.csci468.parser.ParseErrorException: 
 Parse Errors Occurred:
 
@@ -212,15 +212,15 @@ Error: Unexpected Token
 
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.varStatementWithListType(CatscriptParserStatementsTest.java:119)
 
-[ERROR] ifStatementParses  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] ifStatementParses  Time elapsed: 0 s  <<< ERROR!
 java.lang.ClassCastException: class edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement cannot be cast to class edu.montana.csci.csci468.parser.statements.IfStatement (edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement and edu.montana.csci.csci468.parser.statements.IfStatement are in unnamed module of loader 'app')
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.ifStatementParses(CatscriptParserStatementsTest.java:43)
 
-[ERROR] ifStatementWithElseParses  Time elapsed: 0 s  <<< ERROR!
+[ERROR] ifStatementWithElseParses  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.ClassCastException: class edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement cannot be cast to class edu.montana.csci.csci468.parser.statements.IfStatement (edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement and edu.montana.csci.csci468.parser.statements.IfStatement are in unnamed module of loader 'app')
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.ifStatementWithElseParses(CatscriptParserStatementsTest.java:59)
 
-[ERROR] ifStatementEnsuresClosingBrace  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] ifStatementEnsuresClosingBrace  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.ClassCastException: class edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement cannot be cast to class edu.montana.csci.csci468.parser.statements.IfStatement (edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement and edu.montana.csci.csci468.parser.statements.IfStatement are in unnamed module of loader 'app')
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.ifStatementEnsuresClosingBrace(CatscriptParserStatementsTest.java:52)
 
@@ -329,7 +329,7 @@ Error: Unexpected Token
 java.lang.ClassCastException: class edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement cannot be cast to class edu.montana.csci.csci468.parser.statements.ForStatement (edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement and edu.montana.csci.csci468.parser.statements.ForStatement are in unnamed module of loader 'app')
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.forStatementEnsuresClosingBrace(CatscriptParserStatementsTest.java:36)
 
-[ERROR] assigmentStatement  Time elapsed: 0 s  <<< ERROR!
+[ERROR] assigmentStatement  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.ClassCastException: class edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement cannot be cast to class edu.montana.csci.csci468.parser.statements.AssignmentStatement (edu.montana.csci.csci468.parser.statements.SyntaxErrorStatement and edu.montana.csci.csci468.parser.statements.AssignmentStatement are in unnamed module of loader 'app')
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.assigmentStatement(CatscriptParserStatementsTest.java:128)
 
@@ -607,7 +607,7 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 	at edu.montana.csci.csci468.parser.CatscriptParserStatementsTest.forStatementParses(CatscriptParserStatementsTest.java:27)
 
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest
-[ERROR] Tests run: 10, Failures: 6, Errors: 3, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest
+[ERROR] Tests run: 10, Failures: 6, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest
 [ERROR] comparativeTypeError  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <Incompatible types> but was: <Unexpected Token>
 	at edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest.comparativeTypeError(CatscriptParserTypeCheckingTest.java:77)
@@ -674,7 +674,7 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 	at edu.montana.csci.csci468.parser.CatscriptParserErrorsTest.basicSymbolErrorWorks(CatscriptParserErrorsTest.java:15)
 
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest
-[ERROR] Tests run: 8, Failures: 4, Errors: 4, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest
+[ERROR] Tests run: 8, Failures: 4, Errors: 4, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest
 [ERROR] paramsConflictWithGlobalVars  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest.paramsConflictWithGlobalVars(CatscriptParserSymbolCheckingTest.java:46)
@@ -796,14 +796,14 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 	at edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest.forVarConflict(CatscriptParserSymbolCheckingTest.java:40)
 
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserExpressionsTest
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in edu.montana.csci.csci468.parser.CatscriptParserExpressionsTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in edu.montana.csci.csci468.parser.CatscriptParserExpressionsTest
 [INFO] Running edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest
-[ERROR] Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest
+[ERROR] Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest
 [ERROR] recursiveFunctionWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.recursiveFunctionWorksProperly(CatscriptStatementExecutionTest.java:75)
 
-[ERROR] localVarStatementsWorkProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] localVarStatementsWorkProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.localVarStatementsWorkProperly(CatscriptStatementExecutionTest.java:43)
 
@@ -811,7 +811,7 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.varStatementWorksProperly(CatscriptStatementExecutionTest.java:32)
 
-[ERROR] functionDeclarationWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] functionDeclarationWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.functionDeclarationWorksProperly(CatscriptStatementExecutionTest.java:66)
 
@@ -823,7 +823,7 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.varInsideFunctionWorksProperly(CatscriptStatementExecutionTest.java:51)
 
-[ERROR] ifStatementWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] ifStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 edu.montana.csci.csci468.parser.ParseErrorException: 
 Parse Errors Occurred:
 
@@ -860,7 +860,7 @@ Error: Unexpected Token
 
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.ifStatementWorksProperly(CatscriptStatementExecutionTest.java:24)
 
-[ERROR] forStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] forStatementWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.forStatementWorksProperly(CatscriptStatementExecutionTest.java:61)
 
@@ -921,7 +921,7 @@ Error: Unexpected Token
 
 	at edu.montana.csci.csci468.eval.CatscriptBasicExpressionEvalTest.unaryExpressionEvaluatesProperly(CatscriptBasicExpressionEvalTest.java:24)
 
-[ERROR] literalExpressionsEvaluatesProperly  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] literalExpressionsEvaluatesProperly  Time elapsed: 0 s  <<< ERROR!
 edu.montana.csci.csci468.parser.ParseErrorException: 
 Parse Errors Occurred:
 
@@ -956,7 +956,7 @@ Error: Unexpected Token
 	at edu.montana.csci.csci468.eval.CatscriptBasicExpressionEvalTest.parenthesizedExpressionEvaluatesProperly(CatscriptBasicExpressionEvalTest.java:78)
 
 [INFO] Running edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest
-[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest
+[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest
 [ERROR] listTypeWithComponentTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.listTypeWithComponentTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:56)
@@ -965,7 +965,7 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.stringTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:44)
 
-[ERROR] noTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] noTypeArgWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.noTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:20)
 
@@ -985,7 +985,7 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.returnListWithComponentTypeWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:101)
 
-[ERROR] returnListWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] returnListWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.returnListWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:94)
 
@@ -1005,11 +1005,11 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.intTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:32)
 
-[ERROR] booleanTypeArgWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] booleanTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.booleanTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:38)
 
-[ERROR] returnIntWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] returnIntWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.returnIntWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:82)
 
@@ -1091,8 +1091,8 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.170 s
-[INFO] Finished at: 2023-02-28T10:13:22-07:00
+[INFO] Total time:  1.168 s
+[INFO] Finished at: 2023-03-02T14:13:58-07:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project csci-468-spring2022: There are test failures.
 [ERROR] 

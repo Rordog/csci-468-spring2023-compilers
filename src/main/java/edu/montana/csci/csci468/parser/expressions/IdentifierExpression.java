@@ -6,13 +6,16 @@ import edu.montana.csci.csci468.parser.CatscriptType;
 import edu.montana.csci.csci468.parser.ErrorType;
 import edu.montana.csci.csci468.parser.ParseError;
 import edu.montana.csci.csci468.parser.SymbolTable;
+import edu.montana.csci.csci468.tokenizer.Token;
 
 public class IdentifierExpression extends Expression {
     private final String name;
+    private Token nameToken;
     private CatscriptType type;
 
-    public IdentifierExpression(String value) {
-        this.name = value;
+    public IdentifierExpression(Token value) {
+        this.name = value.getStringValue();
+        nameToken = value;
     }
 
     public String getName() {
@@ -28,7 +31,7 @@ public class IdentifierExpression extends Expression {
     public void validate(SymbolTable symbolTable) {
         CatscriptType type = symbolTable.getSymbolType(getName());
         if (type == null) {
-            addError(ErrorType.UNKNOWN_NAME);
+            addError(ErrorType.UNKNOWN_NAME, nameToken);
         } else {
             this.type = type;
         }

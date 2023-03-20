@@ -53,7 +53,30 @@ public class EqualityExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
-        return super.evaluate(runtime);
+        if(isEqual()){
+            if(leftHandSide.getType() == CatscriptType.INT && rightHandSide.getType() == CatscriptType.INT){
+                if(leftHandSide.toString().equals(rightHandSide.toString())){
+                    return true;
+                } else {return false;}
+            } else if(leftHandSide.getType() == CatscriptType.BOOLEAN && rightHandSide.getType() == CatscriptType.BOOLEAN){
+                if(leftHandSide.getStart().getType().equals(rightHandSide.getStart().getType())){
+                    return true;
+                } else {return false;}
+            } else if(leftHandSide.getType() == CatscriptType.STRING && rightHandSide.getType() == CatscriptType.STRING){
+                return null;
+            } else if(leftHandSide.getType() == CatscriptType.OBJECT && rightHandSide.getType() == CatscriptType.OBJECT){
+                return null;
+            } else if(leftHandSide.getType() == CatscriptType.NULL && rightHandSide.getType() == CatscriptType.NULL){
+                return true;
+            }
+        } else {
+            if(leftHandSide != rightHandSide){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return null;
     }
 
     @Override

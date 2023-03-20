@@ -2,11 +2,8 @@ package edu.montana.csci.csci468.parser.statements;
 
 import edu.montana.csci.csci468.bytecode.ByteCodeGenerator;
 import edu.montana.csci.csci468.eval.CatscriptRuntime;
-import edu.montana.csci.csci468.parser.CatscriptType;
-import edu.montana.csci.csci468.parser.ErrorType;
-import edu.montana.csci.csci468.parser.ParseError;
-import edu.montana.csci.csci468.parser.SymbolTable;
-import edu.montana.csci.csci468.parser.expressions.Expression;
+import edu.montana.csci.csci468.parser.*;
+import edu.montana.csci.csci468.parser.expressions.*;
 
 public class VariableStatement extends Statement {
     private Expression expression;
@@ -48,8 +45,38 @@ public class VariableStatement extends Statement {
         if (symbolTable.hasSymbol(variableName)) {
             addError(ErrorType.DUPLICATE_NAME);
         } else {
-            // TODO if there is an explicit type, ensure it is correct
-            //      if not, infer the type from the right hand side expression
+            if(explicitType != null){
+                if(expression.getClass() == ListLiteralExpression.class){
+                    boolean compatible = true;
+                    CatscriptType.ListType listType = (CatscriptType.ListType) explicitType;
+                    CatscriptType componentType =  listType.getComponentType();
+                    for (int i = 0; i < expression.getChildren().size(); i++){
+                        ParseElement ind = expression.getChildren().get(i);
+                        if(componentType == CatscriptType.BOOLEAN){
+                            if(ind.getClass() != BooleanLiteralExpression.class){
+                                compatible = false;
+                            }
+                        } else if(componentType == CatscriptType.INT){
+                            if(ind.getClass() != IntegerLiteralExpression.class){
+                                compatible = false;
+                            }
+                        } else if(componentType == CatscriptType.STRING){
+                            if(ind.getClass() != StringLiteralExpression.class){
+                                compatible = false;
+                            }
+                        }
+                    }
+                    if(compatible == false){
+                        addError(ErrorType.INCOMPATIBLE_TYPES, expression.getStart());
+                    }
+                } else if(explicitType == CatscriptType.OBJECT){
+                    type = explicitType;
+                } else if(expression.getType() != explicitType){
+                    addError(ErrorType.INCOMPATIBLE_TYPES, expression.getStart());
+                } else {type = explicitType;}
+            } else {
+                type = expression.getType();
+            }
             symbolTable.registerSymbol(variableName, type);
         }
     }

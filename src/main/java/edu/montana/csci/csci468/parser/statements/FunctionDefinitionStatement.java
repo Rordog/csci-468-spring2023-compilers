@@ -146,7 +146,9 @@ public class FunctionDefinitionStatement extends Statement {
     //==============================================================
     @Override
     public void execute(CatscriptRuntime runtime) {
-        super.execute(runtime);
+        // i don't know where to get the args for invoke
+        // and then what to do with it
+        //invoke(runtime, );
     }
 
     @Override

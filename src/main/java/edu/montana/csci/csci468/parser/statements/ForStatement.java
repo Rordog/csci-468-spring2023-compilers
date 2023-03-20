@@ -73,7 +73,9 @@ public class ForStatement extends Statement {
     //==============================================================
     @Override
     public void execute(CatscriptRuntime runtime) {
-        super.execute(runtime);
+        for(int i = 0; i < expression.getChildren().size(); i++){
+            // how to execute body with input of expression child
+        }
     }
 
     @Override

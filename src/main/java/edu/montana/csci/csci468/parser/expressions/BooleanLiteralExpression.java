@@ -8,9 +8,7 @@ import edu.montana.csci.csci468.parser.SymbolTable;
 public class BooleanLiteralExpression extends Expression {
     private final boolean booleanValue;
 
-    public BooleanLiteralExpression(boolean value) {
-        this.booleanValue = value;
-    }
+    public BooleanLiteralExpression(boolean value) {this.booleanValue = value;}
 
     public boolean getValue() {
         return booleanValue;
@@ -30,7 +28,7 @@ public class BooleanLiteralExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
-        return super.evaluate(runtime);
+        return getValue();
     }
 
     @Override

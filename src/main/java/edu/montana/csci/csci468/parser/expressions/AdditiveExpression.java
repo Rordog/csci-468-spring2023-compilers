@@ -43,8 +43,14 @@ public class AdditiveExpression extends Expression {
             if (!rightHandSide.getType().equals(CatscriptType.INT)) {
                 rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
             }
+        } else if(getType().equals(CatscriptType.STRING)){
+            if (!leftHandSide.getType().equals(CatscriptType.STRING) && !leftHandSide.getType().equals(CatscriptType.INT) && !leftHandSide.getType().equals(CatscriptType.NULL)) {
+                leftHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
+            }
+            if (!rightHandSide.getType().equals(CatscriptType.STRING) && !rightHandSide.getType().equals(CatscriptType.INT) && !rightHandSide.getType().equals(CatscriptType.NULL)) {
+                rightHandSide.addError(ErrorType.INCOMPATIBLE_TYPES);
+            }
         }
-        // TODO handle strings
     }
 
     @Override
@@ -67,14 +73,31 @@ public class AdditiveExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
-        Integer lhsValue = (Integer) leftHandSide.evaluate(runtime);
-        Integer rhsValue = (Integer) rightHandSide.evaluate(runtime);
-        //TODO handle string case
-        if (isAdd()) {
-            return lhsValue + rhsValue;
+         if(getType() == CatscriptType.INT){
+            Integer lhsValue = (Integer) leftHandSide.evaluate(runtime);
+            Integer rhsValue = (Integer) rightHandSide.evaluate(runtime);
+            if (isAdd()) {
+                return lhsValue + rhsValue;
+            } else {
+                return lhsValue - rhsValue;
+            }
         } else {
-            return lhsValue - rhsValue;
+             String lhs;
+             String rhs;
+             if(leftHandSide.evaluate(runtime) == null){
+                 lhs = "null";
+             } else {
+                 lhs = leftHandSide.evaluate(runtime).toString();
+             }
+             if(rightHandSide.evaluate(runtime) == null){
+                 rhs = "null";
+             } else {
+                 rhs = rightHandSide.evaluate(runtime).toString();
+             }
+            return lhs.concat(rhs);
         }
+
+
     }
 
     @Override

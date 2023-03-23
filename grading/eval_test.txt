@@ -9,13 +9,7 @@
 [INFO] Copying 5 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ csci-468-spring2022 ---
-[INFO] Changes detected - recompiling the module!
-[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
-[INFO] Compiling 47 source files to /Users/carson/Projects/msu/csci-468-spring2023/grading/scripts/repos/rory_donley-lovato/target/classes
-[WARNING] /Users/carson/Projects/msu/csci-468-spring2023/grading/scripts/repos/rory_donley-lovato/src/main/java/edu/montana/csci/csci468/bytecode/MethodGenerator.java: /Users/carson/Projects/msu/csci-468-spring2023/grading/scripts/repos/rory_donley-lovato/src/main/java/edu/montana/csci/csci468/bytecode/MethodGenerator.java uses or overrides a deprecated API.
-[WARNING] /Users/carson/Projects/msu/csci-468-spring2023/grading/scripts/repos/rory_donley-lovato/src/main/java/edu/montana/csci/csci468/bytecode/MethodGenerator.java: Recompile with -Xlint:deprecation for details.
-[WARNING] /Users/carson/Projects/msu/csci-468-spring2023/grading/scripts/repos/rory_donley-lovato/src/main/java/edu/montana/csci/csci468/tokenizer/TokenList.java: Some input files use unchecked or unsafe operations.
-[WARNING] /Users/carson/Projects/msu/csci-468-spring2023/grading/scripts/repos/rory_donley-lovato/src/main/java/edu/montana/csci/csci468/tokenizer/TokenList.java: Recompile with -Xlint:unchecked for details.
+[INFO] Nothing to compile - all classes are up to date
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ csci-468-spring2022 ---
 [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
@@ -30,20 +24,20 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running edu.montana.csci.csci468.tokenizer.CatScriptTokenizerTest
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in edu.montana.csci.csci468.tokenizer.CatScriptTokenizerTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in edu.montana.csci.csci468.tokenizer.CatScriptTokenizerTest
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserStatementsTest
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in edu.montana.csci.csci468.parser.CatscriptParserStatementsTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in edu.montana.csci.csci468.parser.CatscriptParserStatementsTest
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in edu.montana.csci.csci468.parser.CatscriptParserTypeCheckingTest
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserErrorsTest
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in edu.montana.csci.csci468.parser.CatscriptParserErrorsTest
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest
 [ERROR] Tests run: 8, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest
-[ERROR] duplicateVarsErrors  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] duplicateVarsErrors  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest.duplicateVarsErrors(CatscriptParserSymbolCheckingTest.java:16)
 
-[ERROR] functionVarConflict  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] functionVarConflict  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenizer.Token.getLine()" because "this.location" is null
 	at edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest.functionVarConflict(CatscriptParserSymbolCheckingTest.java:28)
 
@@ -56,14 +50,14 @@ java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.tokenize
 	at edu.montana.csci.csci468.parser.CatscriptParserSymbolCheckingTest.forVarConflict(CatscriptParserSymbolCheckingTest.java:40)
 
 [INFO] Running edu.montana.csci.csci468.parser.CatscriptParserExpressionsTest
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in edu.montana.csci.csci468.parser.CatscriptParserExpressionsTest
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in edu.montana.csci.csci468.parser.CatscriptParserExpressionsTest
 [INFO] Running edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest
 [ERROR] Tests run: 9, Failures: 2, Errors: 6, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest
 [ERROR] recursiveFunctionWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: execute needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionCallStatement
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.recursiveFunctionWorksProperly(CatscriptStatementExecutionTest.java:75)
 
-[ERROR] localVarStatementsWorkProperly  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] localVarStatementsWorkProperly  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <1
 2
@@ -71,7 +65,7 @@ expected: <1
 > but was: <>
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.localVarStatementsWorkProperly(CatscriptStatementExecutionTest.java:43)
 
-[ERROR] varStatementWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] varStatementWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: execute needs to be implemented for edu.montana.csci.csci468.parser.statements.VariableStatement
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.varStatementWorksProperly(CatscriptStatementExecutionTest.java:32)
 
@@ -79,7 +73,7 @@ java.lang.UnsupportedOperationException: execute needs to be implemented for edu
 java.lang.UnsupportedOperationException: execute needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionCallStatement
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.functionDeclarationWorksProperly(CatscriptStatementExecutionTest.java:66)
 
-[ERROR] returnStatementWorks  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] returnStatementWorks  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: evaluate needs to be implemented for edu.montana.csci.csci468.parser.expressions.FunctionCallExpression
 	at edu.montana.csci.csci468.eval.CatscriptStatementExecutionTest.returnStatementWorks(CatscriptStatementExecutionTest.java:88)
 
@@ -102,7 +96,7 @@ expected: <1
 [INFO] Running edu.montana.csci.csci468.eval.CatscriptBasicExpressionEvalTest
 [INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in edu.montana.csci.csci468.eval.CatscriptBasicExpressionEvalTest
 [INFO] Running edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest
-[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest
+[ERROR] Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest
 [ERROR] listTypeWithComponentTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: execute needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionCallStatement
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.listTypeWithComponentTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:56)
@@ -123,11 +117,11 @@ java.lang.UnsupportedOperationException: execute needs to be implemented for edu
 java.lang.UnsupportedOperationException: evaluate needs to be implemented for edu.montana.csci.csci468.parser.expressions.FunctionCallExpression
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.returnBoolWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:88)
 
-[ERROR] returnObjectWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] returnObjectWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: evaluate needs to be implemented for edu.montana.csci.csci468.parser.expressions.FunctionCallExpression
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.returnObjectWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:72)
 
-[ERROR] returnListWithComponentTypeWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] returnListWithComponentTypeWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.UnsupportedOperationException: evaluate needs to be implemented for edu.montana.csci.csci468.parser.expressions.FunctionCallExpression
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.returnListWithComponentTypeWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:101)
 
@@ -143,11 +137,11 @@ java.lang.UnsupportedOperationException: execute needs to be implemented for edu
 java.lang.UnsupportedOperationException: execute needs to be implemented for edu.montana.csci.csci468.parser.statements.VariableStatement
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.voidFunctionWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:12)
 
-[ERROR] listTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
+[ERROR] listTypeArgWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "edu.montana.csci.csci468.parser.CatscriptType.isAssignableFrom(edu.montana.csci.csci468.parser.CatscriptType)" because "parameterType" is null
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.listTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:50)
 
-[ERROR] intTypeArgWorksProperly  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] intTypeArgWorksProperly  Time elapsed: 0 s  <<< ERROR!
 java.lang.UnsupportedOperationException: execute needs to be implemented for edu.montana.csci.csci468.parser.statements.FunctionCallStatement
 	at edu.montana.csci.csci468.eval.CatscriptFunctionArgsAndReturnEvalTest.intTypeArgWorksProperly(CatscriptFunctionArgsAndReturnEvalTest.java:32)
 
@@ -202,8 +196,8 @@ java.lang.UnsupportedOperationException: evaluate needs to be implemented for ed
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.795 s
-[INFO] Finished at: 2023-03-21T09:44:59-06:00
+[INFO] Total time:  1.154 s
+[INFO] Finished at: 2023-03-22T21:31:43-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project csci-468-spring2022: There are test failures.
 [ERROR] 

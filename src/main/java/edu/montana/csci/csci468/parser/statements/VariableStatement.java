@@ -40,10 +40,10 @@ public class VariableStatement extends Statement {
     }
 
     @Override
-    public void validate(SymbolTable symbolTable) {
+    public void validate(SymbolTable symbolTable)  {
         expression.validate(symbolTable);
         if (symbolTable.hasSymbol(variableName)) {
-            addError(ErrorType.DUPLICATE_NAME);
+            addError(ErrorType.DUPLICATE_NAME, expression.getStart());
         } else {
             if(explicitType != null){
                 if(expression.getClass() == ListLiteralExpression.class){
@@ -90,7 +90,8 @@ public class VariableStatement extends Statement {
     //==============================================================
     @Override
     public void execute(CatscriptRuntime runtime) {
-        super.execute(runtime);
+        Object evaluate = expression.evaluate(runtime);
+        runtime.setValue(variableName, evaluate);
     }
 
     @Override

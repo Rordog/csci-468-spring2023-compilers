@@ -145,11 +145,7 @@ public class FunctionDefinitionStatement extends Statement {
     // Implementation
     //==============================================================
     @Override
-    public void execute(CatscriptRuntime runtime) {
-        // i don't know where to get the args for invoke
-        // and then what to do with it
-        //invoke(runtime, );
-    }
+    public void execute(CatscriptRuntime runtime) {}
 
     @Override
     public void transpile(StringBuilder javascript) {

@@ -7,21 +7,25 @@ import edu.montana.csci.csci468.parser.ErrorType;
 import edu.montana.csci.csci468.parser.ParseError;
 import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.parser.expressions.Expression;
+import edu.montana.csci.csci468.tokenizer.Token;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ForStatement extends Statement {
     private Expression expression;
     private String variableName;
+    private Token nameToken;
     private List<Statement> body;
 
     public void setExpression(Expression expression) {
         this.expression = addChild(expression);
     }
 
-    public void setVariableName(String variableName) {
-        this.variableName = variableName;
+    public void setVariableName(Token variableName) {
+        this.variableName = variableName.getStringValue();
+        this.nameToken = variableName;
     }
 
     public void setBody(List<Statement> statements) {
@@ -47,7 +51,7 @@ public class ForStatement extends Statement {
     public void validate(SymbolTable symbolTable) {
         symbolTable.pushScope();
         if (symbolTable.hasSymbol(variableName)) {
-            addError(ErrorType.DUPLICATE_NAME);
+            addError(ErrorType.DUPLICATE_NAME, nameToken);
         } else {
             expression.validate(symbolTable);
             CatscriptType type = expression.getType();
@@ -73,9 +77,15 @@ public class ForStatement extends Statement {
     //==============================================================
     @Override
     public void execute(CatscriptRuntime runtime) {
-        for(int i = 0; i < expression.getChildren().size(); i++){
-            // how to execute body with input of expression child
+        Iterable listToIterateOver = (Iterable) expression.evaluate(runtime);
+        runtime.pushScope();
+        for(Object currentValue : listToIterateOver){
+            runtime.setValue(variableName, currentValue);
+            for(Statement statement : body){
+                statement.execute(runtime);
+            }
         }
+        runtime.popScope();
     }
 
     @Override

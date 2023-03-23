@@ -43,7 +43,8 @@ public class IdentifierExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
-        return super.evaluate(runtime);
+        Object evaluated = runtime.getValue(name);
+        return evaluated;
     }
 
     @Override

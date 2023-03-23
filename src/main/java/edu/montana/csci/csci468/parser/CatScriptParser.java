@@ -110,9 +110,13 @@ public class CatScriptParser {
         String type = require(IDENTIFIER, typeLiteral).getStringValue();
         if(type.equals("list")){
             isList = true;
-            require(LESS, typeLiteral);
-            type = require(IDENTIFIER, typeLiteral).getStringValue();
-            require(GREATER, typeLiteral);
+            if(tokens.matchAndConsume(LESS)){
+                type = require(IDENTIFIER, typeLiteral).getStringValue();
+                require(GREATER, typeLiteral);
+            } else {
+                typeLiteral.setType(CatscriptType.getListType(CatscriptType.OBJECT));
+            }
+
         }
         if(type.equals("int")){
             if(isList == true){
@@ -282,7 +286,7 @@ public class CatScriptParser {
         if(tokens.matchAndConsume(FOR)){
             ForStatement def = new ForStatement();
             if(tokens.matchAndConsume(LEFT_PAREN)){
-                def.setVariableName(tokens.consumeToken().getStringValue());
+                def.setVariableName(tokens.consumeToken());
             } else {def.addError(ErrorType.UNEXPECTED_TOKEN);}
             if(tokens.matchAndConsume(IN)){
                 Expression loop = parseExpression();

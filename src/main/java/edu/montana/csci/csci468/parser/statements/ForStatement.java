@@ -8,7 +8,10 @@ import edu.montana.csci.csci468.parser.ParseError;
 import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.parser.expressions.Expression;
 import edu.montana.csci.csci468.tokenizer.Token;
+import org.objectweb.asm.Label;
+import org.objectweb.asm.Opcodes;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -95,7 +98,43 @@ public class ForStatement extends Statement {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        Integer iteratorSlot = code.nextLocalStorageSlot();
+        Label forLoopStart = new Label();
+        Label forLoopend = new Label();
+
+        expression.compile(code);
+        List temp = new ArrayList();
+        temp.iterator();
+        code.addMethodInstruction(Opcodes.INVOKEINTERFACE, ByteCodeGenerator.internalNameFor(List.class),
+                "iterator", "()Ljava/util/Iterator;");
+        code.addVarInstruction(Opcodes.ASTORE, iteratorSlot);
+        List l = new ArrayList();
+        Iterator iterator = l.iterator();
+        iterator.hasNext();
+
+        code.addLabel(forLoopStart);
+        code.addVarInstruction(Opcodes.ALOAD, iteratorSlot);
+        code.addMethodInstruction(Opcodes.INVOKEINTERFACE, ByteCodeGenerator.internalNameFor(Iterator.class),
+                "hasNext", "()Z");
+        code.addJumpInstruction(Opcodes.IFEQ, forLoopend);
+
+        code.addMethodInstruction(Opcodes.INVOKEINTERFACE, ByteCodeGenerator.internalNameFor(Iterator.class),
+                "next", "()Ljava/lang/Object;");
+        String loopVariableTypeInternalName = ByteCodeGenerator.internalNameFor(getComponentType().getJavaType());
+        code.addTypeInstruction(Opcodes.CHECKCAST, loopVariableTypeInternalName);
+        unbox(code, getComponentType());
+        Integer loopVarSlot = code.createLocalStorageSlotFor(variableName);
+
+        if(getComponentType().equals(CatscriptType.INT) || getComponentType().equals(CatscriptType.BOOLEAN)){
+            code.addVarInstruction(Opcodes.ISTORE, loopVarSlot);
+        } else {
+            code.addVarInstruction(Opcodes.ASTORE, loopVarSlot);
+        }
+        for(Statement statement : body){
+            statement.compile(code);
+        }
+
+        code.addLabel(forLoopend);
     }
 
 }

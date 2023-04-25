@@ -6,6 +6,12 @@ import edu.montana.csci.csci468.parser.CatscriptType;
 import edu.montana.csci.csci468.parser.SymbolTable;
 import edu.montana.csci.csci468.tokenizer.Token;
 import edu.montana.csci.csci468.tokenizer.TokenType;
+import org.objectweb.asm.Label;
+import org.objectweb.asm.Opcodes;
+
+import java.util.Objects;
+
+import static edu.montana.csci.csci468.bytecode.ByteCodeGenerator.internalNameFor;
 
 public class EqualityExpression extends Expression {
 
@@ -53,9 +59,11 @@ public class EqualityExpression extends Expression {
 
     @Override
     public Object evaluate(CatscriptRuntime runtime) {
+        Object left = leftHandSide.evaluate(runtime);
+        Object right = rightHandSide.evaluate(runtime);
         if(isEqual()){
             if(leftHandSide.getType() == CatscriptType.INT && rightHandSide.getType() == CatscriptType.INT){
-                if(leftHandSide.toString().equals(rightHandSide.toString())){
+                if(left.equals(right)){
                     return true;
                 } else {return false;}
             } else if(leftHandSide.getType() == CatscriptType.BOOLEAN && rightHandSide.getType() == CatscriptType.BOOLEAN){
@@ -86,7 +94,16 @@ public class EqualityExpression extends Expression {
 
     @Override
     public void compile(ByteCodeGenerator code) {
-        super.compile(code);
+        getLeftHandSide().compile(code);
+        box(code, getLeftHandSide().getType());
+        getRightHandSide().compile(code);
+        box(code, getRightHandSide().getType());
+        code.addMethodInstruction(Opcodes.INVOKESTATIC, internalNameFor(Objects.class),
+                "equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z");
+        if(! isEqual()){
+            code.pushConstantOntoStack(1);
+            code.addInstruction(Opcodes.IXOR);
+        }
     }
 
 

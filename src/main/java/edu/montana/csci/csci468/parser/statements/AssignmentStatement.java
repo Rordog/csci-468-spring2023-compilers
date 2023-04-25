@@ -59,4 +59,41 @@ public class AssignmentStatement extends Statement {
     public void compile(ByteCodeGenerator code) {
         super.compile(code);
     }
+    /*
+    int x;
+        x = 12;
+     // access flags 0x9
+  public static main([Ljava/lang/String;)V
+   L0
+    LINENUMBER 19 L0
+    BIPUSH 12
+    ISTORE 1
+   L1
+    LINENUMBER 20 L1
+    RETURN
+   L2
+    LOCALVARIABLE args [Ljava/lang/String; L0 L2 0
+    LOCALVARIABLE x I L1 L2 1
+    MAXSTACK = 1
+    MAXLOCALS = 2
+}
+    var x = 2
+    x = 1
+    L0
+    LINENUMBER 22 L0
+    ICONST_2
+    ISTORE 1
+   L1
+    LINENUMBER 23 L1
+    ICONST_1
+    ISTORE 1
+   L2
+    LINENUMBER 24 L2
+    RETURN
+   L3
+    LOCALVARIABLE args [Ljava/lang/String; L0 L3 0
+    LOCALVARIABLE x I L1 L3 1
+    MAXSTACK = 1
+    MAXLOCALS = 2
+     */
 }

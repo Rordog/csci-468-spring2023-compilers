@@ -1,8 +1,12 @@
 package edu.montana.csci.csci468.demo;
 
+import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.LinkedList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Scratch {
 
@@ -15,7 +19,7 @@ public class Scratch {
     }
 
     public static void main(String[] args) {
-        System.out.println("foo");
-        System.out.println("bar");
+        var x = 2;
+        x = 1;
     }
 }

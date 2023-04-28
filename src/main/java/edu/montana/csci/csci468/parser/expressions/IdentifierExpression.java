@@ -56,18 +56,21 @@ public class IdentifierExpression extends Expression {
     @Override
     public void compile(ByteCodeGenerator code) {
         Integer slot = code.resolveLocalStorageSlotFor(name);
-        // inverse of variable statement
         if(slot == null){
-            //global variable
-            // primitive and non-primitive variables
-            // push on a this pointer
-            // load field
-            //Opcodes.GETFIELD
-
+            code.addVarInstruction(Opcodes.ALOAD, 0);
+            if(getType().equals(CatscriptType.INT) || getType().equals(CatscriptType.BOOLEAN)){
+                code.addFieldInstruction(Opcodes.GETFIELD, name, "I", code.getProgramInternalName());
+            } else {
+                String s = ByteCodeGenerator.internalNameFor(getType().getJavaType());
+                code.addFieldInstruction(Opcodes.GETFIELD, name, "L" + s + ";", code.getProgramInternalName());
+            }
         } else {
-            // local variable
-            // primitive and non-primitive
-            //Opcodes.ILOAD or Opcodes.ALOAD
+            Integer slotNumber = code.resolveLocalStorageSlotFor(name);
+            if(getType().equals(CatscriptType.INT) || getType().equals(CatscriptType.BOOLEAN)){
+                code.addVarInstruction(Opcodes.ILOAD, slotNumber);
+            } else {
+                code.addVarInstruction(Opcodes.ALOAD, slotNumber);
+            }
         }
     }
 

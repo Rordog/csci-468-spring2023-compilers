@@ -19,7 +19,9 @@ public class Scratch {
     }
 
     public static void main(String[] args) {
-        var x = 2;
-        x = 1;
+        for(int x = 0; x < 3; x++){
+            var y = x;
+            System.out.println(y);
+        }
     }
 }

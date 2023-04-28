@@ -103,21 +103,17 @@ public class ForStatement extends Statement {
         Label forLoopend = new Label();
 
         expression.compile(code);
-        List temp = new ArrayList();
-        temp.iterator();
+
         code.addMethodInstruction(Opcodes.INVOKEINTERFACE, ByteCodeGenerator.internalNameFor(List.class),
                 "iterator", "()Ljava/util/Iterator;");
         code.addVarInstruction(Opcodes.ASTORE, iteratorSlot);
-        List l = new ArrayList();
-        Iterator iterator = l.iterator();
-        iterator.hasNext();
 
         code.addLabel(forLoopStart);
         code.addVarInstruction(Opcodes.ALOAD, iteratorSlot);
         code.addMethodInstruction(Opcodes.INVOKEINTERFACE, ByteCodeGenerator.internalNameFor(Iterator.class),
                 "hasNext", "()Z");
         code.addJumpInstruction(Opcodes.IFEQ, forLoopend);
-
+        code.addVarInstruction(Opcodes.ALOAD, iteratorSlot);
         code.addMethodInstruction(Opcodes.INVOKEINTERFACE, ByteCodeGenerator.internalNameFor(Iterator.class),
                 "next", "()Ljava/lang/Object;");
         String loopVariableTypeInternalName = ByteCodeGenerator.internalNameFor(getComponentType().getJavaType());
@@ -133,7 +129,8 @@ public class ForStatement extends Statement {
         for(Statement statement : body){
             statement.compile(code);
         }
-
+        code.addJumpInstruction(Opcodes.GOTO, forLoopStart);
+        // get where to put goto instruction for start of loop
         code.addLabel(forLoopend);
     }
 

@@ -159,7 +159,7 @@ public class FunctionDefinitionStatement extends Statement {
         code.pushMethod(Opcodes.ACC_PUBLIC, name, getDescriptor());
         // allocate slots for parameters
         for(String argumentName : argumentNames){
-
+            code.createLocalStorageSlotFor(argumentName);
         }
         // compile body of function
         // recursive call over

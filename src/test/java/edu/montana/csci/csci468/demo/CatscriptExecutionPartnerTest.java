@@ -47,26 +47,6 @@ public class CatscriptExecutionPartnerTest extends CatscriptTestBase {
 
     @Test
     void fibonacciFunction() {
-        /*
-        function fib(n : int): int {
-            if (n < 0) {
-                print("Invalid Input")
-                return 0
-            }
-            if (n == 0) {
-                return 0
-            }
-            if (n == 1) {
-                return 1
-            }
-            if (n == 2) {
-                return 1
-            }
-
-            return fib(n-1) + fib(n-2)
-        }
-        print(fib(10))
-         */
         String program = "function fib(n : int): int {\n" +
                 "\tif (n < 0) {\n" +
                 "\t\tprint(\"Invalid Input, returning 0\")\n" +
@@ -85,11 +65,11 @@ public class CatscriptExecutionPartnerTest extends CatscriptTestBase {
                 "\treturn fib(n-1) + fib(n-2)\n" +
                 "}\n" +
                 "print(fib(%d))";
-        //assertEquals("0\n", compile(String.format(program, 0)));
-        //assertEquals("1\n", compile(String.format(program, 1)));
-        //assertEquals("1\n", compile(String.format(program, 2)));
-        //assertEquals("2\n", compile(String.format(program, 3)));
-        //assertEquals("3\n", compile(String.format(program, 4)));
+        assertEquals("0\n", compile(String.format(program, 0)));
+        assertEquals("1\n", compile(String.format(program, 1)));
+        assertEquals("1\n", compile(String.format(program, 2)));
+        assertEquals("2\n", compile(String.format(program, 3)));
+        assertEquals("3\n", compile(String.format(program, 4)));
     }
 
     @Test
